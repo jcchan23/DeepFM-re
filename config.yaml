@@ -1,0 +1,38 @@
+# data
+dataset: "criteo_100k"
+src_path: "./data/source"
+dst_path: "./data/preprocess"
+
+# feature
+continuous_features: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13']
+categorial_features: ['I1', 'I2', 'I3', 'I4', 'I5', 'I6', 'I7', 'I8', 'I9', 'I10', 'I11', 'I12', 'I13', 'I14', 'I15', 'I16', 'I17', 'I18', 'I19', 'I20', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26']
+continuous_clip:
+    C1: 20
+    C2: 600
+    C3: 100
+    C4: 50
+    C5: 64000
+    C6: 500
+    C7: 100
+    C8: 50
+    C9: 500
+    C10: 10
+    C11: 10
+    C12: 10
+    C13: 50
+categorial_clip: 10
+chunk_size: 1000000
+rebuild_statis_info: True
+
+# model
+batch_size: 512
+embedding_dropout_rate: 0.5
+dnn_dropout_rate: 0.5
+l2_regular_rate: 0.01
+1d_embedding_dim: 16
+kd_embedding_dim: 10
+dnn_dim: 400
+
+# running
+learning_rate: 0.001
+epochs: 50
