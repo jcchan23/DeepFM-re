@@ -108,13 +108,13 @@ AUC
 |Method|criteo_100k|criteo_1m|criteo|
 |:---: |:---:| :---:| :---:|
 |DeepFM    |-|-|0.8007|
-|DeepFM-re|0.7497±0.0010|0.7633±0.0008||
+|DeepFM-re|0.7497±0.0010|0.7633±0.0008|0.7837±0.0005|
 
 LogLoss(Binary_Crossentropy)
 |Method|criteo_100k|criteo_1m|criteo|
 |:---: |:---:| :---:| :---:|
 |DeepFM    |-|-|0.4508|
-|DeepFM-re|0.4723±0.0005|0.4845±0.0012|-|
+|DeepFM-re|0.4723±0.0005|0.4845±0.0012|0.4669±0.0010|
 
 
 ## Reference:
