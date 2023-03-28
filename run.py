@@ -40,7 +40,7 @@ def build_data(src_data_path, dst_data_path, mode, sep=',', chunksize=config["ch
     if mode == 'test':
 
         with open(dst_data_path, 'w') as fw:
-            total_cnt = int(subprocess.getoutput(f"wc -l {dst_data_path}").split()[0])
+            total_cnt = int(subprocess.getoutput(f"wc -l {src_data_path}").split()[0])
             reader = pd.read_csv(src_data_path, sep=sep, names=['label'] + config["continuous_features"] + config["categorial_features"], chunksize=chunksize)
             print(f"There will be {total_cnt // chunksize + 1} data blocks!")
             for data in reader:
@@ -60,7 +60,7 @@ def build_data(src_data_path, dst_data_path, mode, sep=',', chunksize=config["ch
                 statis_info[column] = dict()
         
         with open(dst_data_path, 'w') as fw:
-            total_cnt = int(subprocess.getoutput(f"wc -l {dst_data_path}").split()[0])
+            total_cnt = int(subprocess.getoutput(f"wc -l {src_data_path}").split()[0])
             reader = pd.read_csv(src_data_path, sep=sep, names=['label'] + config["continuous_features"] + config["categorial_features"], chunksize=chunksize)
             print(f"There will be {total_cnt // chunksize + 1} data blocks!")
             for data in reader:
