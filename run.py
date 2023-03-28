@@ -21,6 +21,7 @@ import subprocess
 import pandas as pd
 import tensorflow as tf
 import tensorflow.keras.backend as K
+from tqdm import tqdm
 from collections import Counter
 from tensorflow import feature_column
 from tensorflow.keras.layers import Input, DenseFeatures, Dense, Concatenate, Flatten, Add, Subtract, Multiply, Lambda, Dropout, Activation
@@ -43,7 +44,7 @@ def build_data(src_data_path, dst_data_path, mode, sep=',', chunksize=config["ch
             total_cnt = int(subprocess.getoutput(f"wc -l {src_data_path}").split()[0])
             reader = pd.read_csv(src_data_path, sep=sep, names=['label'] + config["continuous_features"] + config["categorial_features"], chunksize=chunksize)
             print(f"There will be {total_cnt // chunksize + 1} data blocks!")
-            for data in reader:
+            for data in tqdm(reader):
 
                 data[config["continuous_features"]] = data[config["continuous_features"]].fillna(0)
                 data[config["categorial_features"]] = data[config["categorial_features"]].fillna('<unk>')
@@ -63,7 +64,7 @@ def build_data(src_data_path, dst_data_path, mode, sep=',', chunksize=config["ch
             total_cnt = int(subprocess.getoutput(f"wc -l {src_data_path}").split()[0])
             reader = pd.read_csv(src_data_path, sep=sep, names=['label'] + config["continuous_features"] + config["categorial_features"], chunksize=chunksize)
             print(f"There will be {total_cnt // chunksize + 1} data blocks!")
-            for data in reader:
+            for data in tqdm(reader):
 
                 data[config["continuous_features"]] = data[config["continuous_features"]].fillna(0)
                 data[config["categorial_features"]] = data[config["categorial_features"]].fillna('<unk>')
